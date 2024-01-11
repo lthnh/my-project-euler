@@ -1,4 +1,5 @@
 use std::io::{self, Write};
+use num::
 
 fn read_test() -> i32 {
     print!("N: ");
@@ -12,6 +13,7 @@ fn read_test() -> i32 {
     let n = input.trim().parse().unwrap();
     n
 }
+
 fn main() {
     let n = read_test();
     println!("{}", n);

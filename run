@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cpp_flags="-g -Wall -Wextra -Wwrite-strings -Wno-parentheses -Wpedantic -Warray-bounds -Weffc++"
+c_flags="-g -Wall -Wextra -Wpedantic"
+
+set -eux
+
+if [[ $1 =~ .*".cpp" ]]; then
+	g++ $cpp_flags $1
+elif [[ $1 =~ .*".c" ]]; then
+	gcc $c_flags $1
+else
+	echo "Can't compile."
+fi
+./a.out
+rm -f ./a.out
