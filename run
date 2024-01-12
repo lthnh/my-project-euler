@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cpp_compiler="clang++"
+c_compiler="clang"
+cpp_std="-std=c++14"
+c_std=""
+cpp_flags="-g -Wall -Wextra -Weverything -lm"
+c_flags="-g -Wall -Wextra -Weverything -lm"
+
+set -eux
+
+if [[ $1 =~ .*".cpp" ]]; then
+	$cpp_compiler $cpp_std $cpp_flags $1
+elif [[ $1 =~ .*".c" ]]; then
+	$c_compiler $c_std $c_flags $1
+else
+	echo "Can't compile."
+fi
+./a.out
+rm -f ./a.out
