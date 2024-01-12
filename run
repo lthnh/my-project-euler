@@ -1,14 +1,18 @@
 #!/bin/bash
 
-cpp_flags="-g -Wall -Wextra -Wwrite-strings -Wno-parentheses -Wpedantic -Warray-bounds -Weffc++"
-c_flags="-g -Wall -Wextra -Wpedantic"
+cpp_compiler="clang++"
+c_compiler="clang"
+cpp_std="-std=c++14"
+c_std=""
+cpp_flags="-g -Wall -Wextra -Weverything -lm"
+c_flags="-g -Wall -Wextra -Weverything -lm"
 
 set -eux
 
 if [[ $1 =~ .*".cpp" ]]; then
-	g++ $cpp_flags $1
+	$cpp_compiler $cpp_std $cpp_flags $1
 elif [[ $1 =~ .*".c" ]]; then
-	gcc $c_flags $1
+	$c_compiler $c_std $c_flags $1
 else
 	echo "Can't compile."
 fi
