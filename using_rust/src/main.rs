@@ -1,5 +1,4 @@
 use std::io::{self, Write};
-use num::
 
 fn read_test() -> i32 {
     print!("N: ");
