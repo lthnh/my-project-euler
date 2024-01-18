@@ -44,13 +44,11 @@ vector<int> dvsr(vector<factor> const &factors) {
 	vector<int> primes(n_factr);
 	vector<int> exps(n_factr);
 	int bound = 0;
-	size_t n_res = 1;
 
 	for (vector<int>::size_type i = 0; i < n_factr; ++i) {
 		primes[i] = factors[i].prime;
 		exps[i] = factors[i].exp;
 		bound += factors[i].exp;
-		n_res *= (static_cast<size_t>(factors[i].exp));
 	}
 
 	vector<int> exp_combs(n_factr, 0);
